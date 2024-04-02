@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using NovoCollegePracticeExample.Service;
+using System.Windows;
 
 namespace NovoCollegePracticeExample
 {
@@ -7,7 +8,6 @@ namespace NovoCollegePracticeExample
     /// </summary>
     public partial class MainWindow : Window
     {
-        string session_user;
         public MainWindow()
         {
             InitializeComponent();
@@ -27,12 +27,12 @@ namespace NovoCollegePracticeExample
             Close();
         }
 
-        private void LogOutButton_Click(object sender, RoutedEventArgs e)
+        private async void LogOutButton_Click(object sender, RoutedEventArgs e)
         {
-            session_user = null;
             var result = MessageBox.Show("Вы уверены?", "Выход из учётной записи", MessageBoxButton.YesNo);
             if (result == MessageBoxResult.Yes)
             {
+                await UserService.LogOut();
                 AuthWindow authWindow = new();
                 authWindow.Show();
                 Close();

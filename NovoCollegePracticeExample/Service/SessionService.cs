@@ -31,7 +31,10 @@ namespace NovoCollegePracticeExample.Service
             try
             {
                 var sessions = await ShowAll();
-                return sessions.First().SessionUserName;
+                if (sessions.Count == 0)
+                    return null;
+                else
+                    return sessions.First().SessionUserName;
             }
             catch (Exception ex)
             {
@@ -72,7 +75,7 @@ namespace NovoCollegePracticeExample.Service
             try
             {
                 con!.Open();
-                command = new($"DELETE * FROM sessions", con);
+                command = new($"DELETE FROM sessions", con);
                 await command.ExecuteNonQueryAsync();
                 con.Close();
             }
