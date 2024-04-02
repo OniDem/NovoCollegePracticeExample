@@ -1,0 +1,19 @@
+﻿<Window x:Class="NovoCollegePracticeExample.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NovoCollegePracticeExample"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Button Content="Продажа" FontSize="18" x:Name="SellButton" Click="SellButton_Click" Grid.Row="0" Height="50" Width="250"/>
+        <Button Content="Товары" FontSize="18" x:Name="ProductButton" Click="ProductButton_Click" Grid.Row="1" Height="50" Width="250"/>
+        <Button Content="Выйти из учётной записи" x:Name="LogOutButton" Click="LogOutButton_Click" FontSize="18" Grid.Row="2" Height="50" Width="250"/>
+    </Grid>
+</Window>
